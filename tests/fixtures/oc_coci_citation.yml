@@ -1,0 +1,44 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://opencitations.net/index/coci/api/v1/citation/02001010806360107050663080702026306630509-0200101080636102704000806
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.0 crul/0.8.4 rOpenSci(citecorp/0.0.9.9110)
+      X-USER-AGENT: r-curl/4.0 crul/0.8.4 rOpenSci(citecorp/0.0.9.9110)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 16 Aug 2019 17:27:57 GMT
+      content-type: application/json
+      transfer-encoding: chunked
+      connection: keep-alive
+      access-control-allow-origin: '*'
+      access-control-allow-credentials: 'true'
+      server: cloudflare
+      cf-ray: 50751f358fcdbcd2-SEA
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+            {
+                "author_sc": "no",
+                "creation": "2013",
+                "journal_sc": "no",
+                "oci": "02001010806360107050663080702026306630509-0200101080636102704000806",
+                "timespan": "P1Y",
+                "cited": "10.1186/ar4086",
+                "citing": "10.1186/1756-8722-6-59"
+            }
+        ]
+  recorded_at: 2019-08-16 17:27:57 GMT
+  recorded_with: vcr/0.2.6, webmockr/0.4.0
