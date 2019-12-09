@@ -33,8 +33,15 @@ oc_2ids_template <- function(template_string, id_name) {
 #' a DOI search.
 #' @param ... curl options passed on to [crul::verb-GET]
 #' @examples
-#' if (crul::ok('http://opencitations.net/sparql')) {
-#' oc_doi2ids("10.1097/igc.0000000000000609")
+#' if (oc_lookup_check()) {
+#' try(
+#'   oc_doi2ids("10.1097/igc.0000000000000609", timeout_ms=10),
+#'   silent = TRUE
+#' )
+#' }
+#' 
+#' ### More examples
+#' \donttest{
 #' oc_doi2ids('10.1093/biomet/80.3.527')
 #' oc_doi2ids('10.1093/biomet/79.3.531')
 #' oc_pmid2ids("26645990")
@@ -56,3 +63,11 @@ oc_pmid2ids <- oc_2ids_template(qry_pmid2ids, "pmid")
 #' @export
 #' @rdname oc_lookup
 oc_pmcid2ids <- oc_2ids_template(qry_pmcid2ids, "pmcid")
+
+#' oc_lookup checker
+#' @export
+#' @keywords internal
+oc_lookup_check <- function() {
+  qry <- sprintf(qry_doi2ids, "\"10.1093/biomet/80.3.527\"")
+  oc_sparql_OK(qry)
+}
